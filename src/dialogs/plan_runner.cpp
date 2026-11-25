@@ -16,8 +16,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace dialogs {
 
@@ -260,7 +260,7 @@ static int descriptorOf(const udisks::Result& result)
 {
     if (result.values.empty())
         return -1;
-    const std::optional<cutefish::base::dbus::UnixFd> fd = result.values.front().get<cutefish::base::dbus::UnixFd>();
+    const std::optional<properdesktop::base::dbus::UnixFd> fd = result.values.front().get<properdesktop::base::dbus::UnixFd>();
     return fd && fd->isValid() ? fd->release() : -1;
 }
 

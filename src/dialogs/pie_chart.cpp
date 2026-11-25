@@ -14,7 +14,7 @@
 #include <cmath>
 #include <numbers>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace dialogs {
 

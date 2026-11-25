@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogWindow;
 }
 
@@ -37,7 +37,7 @@ public:
     // Disarms itself once the dialog has closed, so a later loss says
     // nothing.
     IdentityGuard(views::Context& context, std::vector<udisks::Identity> identities, std::string name,
-                  cutefish::ui::DialogWindow& dialog, std::function<bool()> busy = {});
+                  properdesktop::ui::DialogWindow& dialog, std::function<bool()> busy = {});
 
     ~IdentityGuard();
 
@@ -62,7 +62,7 @@ private:
     views::Context& m_context;
     std::string m_name;
     std::function<void()> m_close;
-    cutefish::ui::DialogWindow* m_dialog = nullptr;
+    properdesktop::ui::DialogWindow* m_dialog = nullptr;
     std::function<bool()> m_busy;
     std::vector<udisks::Identity> m_identities;
     std::unique_ptr<udisks::IdentityWatch> m_watch;

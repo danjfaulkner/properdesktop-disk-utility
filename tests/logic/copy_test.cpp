@@ -62,7 +62,7 @@ protected:
         while (!condition()) {
             if (std::chrono::steady_clock::now() > end)
                 return false;
-            cutefish::base::EventLoop::current()->dispatch();
+            properdesktop::base::EventLoop::current()->dispatch();
             std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
         return true;
@@ -187,7 +187,7 @@ TEST_F(CopyTest, Cancels)
 
 TEST_F(CopyTest, JobCopiesOnItsThread)
 {
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     const std::string data = noise(3 << 20);
     CopyJob job;
     std::optional<CopyResult> result;
@@ -203,7 +203,7 @@ TEST_F(CopyTest, JobCopiesOnItsThread)
 
 TEST_F(CopyTest, JobCancelsAndStopsWithItsOwner)
 {
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     // Endless: zeros into nothing.
     constexpr uint64_t kLength = 1ull << 50;
     CopyJob job;

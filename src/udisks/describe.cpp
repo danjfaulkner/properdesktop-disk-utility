@@ -14,12 +14,12 @@
 
 #include <sys/statvfs.h>
 
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace udisks {
 
-using cutefish::base::Locale;
+using properdesktop::base::Locale;
 
 std::string formatSize(uint64_t bytes, const Locale& locale)
 {
@@ -103,7 +103,7 @@ std::optional<uint64_t> parseSize(std::string_view input, uint64_t multiple, con
     const std::string digits = asciiDigits(input, locale);
     const std::string point = locale.decimalPoint().empty() ? std::string(".") : locale.decimalPoint();
     const std::string group = locale.groupSeparator();
-    std::string_view text = cutefish::base::strings::trimmed(digits);
+    std::string_view text = properdesktop::base::strings::trimmed(digits);
     size_t index = 0;
     unsigned __int128 whole = 0;
     unsigned __int128 fraction = 0;
@@ -138,7 +138,7 @@ std::optional<uint64_t> parseSize(std::string_view input, uint64_t multiple, con
     if (!any)
         return std::nullopt;
 
-    const std::string_view unit = cutefish::base::strings::trimmed(text.substr(index));
+    const std::string_view unit = properdesktop::base::strings::trimmed(text.substr(index));
     const uint64_t bytesPerUnit = unit.empty() ? multiple : unitBytes(unit, locale);
     if (bytesPerUnit == 0)
         return std::nullopt;
@@ -215,7 +215,7 @@ std::string displayName(const Model& model, const Node& node)
             return std::filesystem::path(object->loop->backingFile).filename().string();
         const Object* drive = model.object(node.drive);
         if (drive && drive->drive) {
-            std::string name(cutefish::base::strings::trimmed(drive->drive->vendor + " " + drive->drive->model));
+            std::string name(properdesktop::base::strings::trimmed(drive->drive->vendor + " " + drive->drive->model));
             if (!name.empty())
                 return name;
         }

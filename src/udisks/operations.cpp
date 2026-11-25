@@ -16,10 +16,10 @@
 
 #include <fcntl.h>
 
-using cutefish::base::EventLoop;
-using cutefish::base::dbus::ObjectPath;
-using cutefish::base::dbus::UnixFd;
-using cutefish::i18n::tr;
+using properdesktop::base::EventLoop;
+using properdesktop::base::dbus::ObjectPath;
+using properdesktop::base::dbus::UnixFd;
+using properdesktop::i18n::tr;
 using namespace std::chrono_literals;
 
 namespace udisks {
@@ -148,7 +148,7 @@ bool Operations::isBusy(const std::string& path) const
     return false;
 }
 
-Operations::Hold::Hold(cutefish::base::WeakPtr<Operations> operations, uint64_t id)
+Operations::Hold::Hold(properdesktop::base::WeakPtr<Operations> operations, uint64_t id)
     : m_operations(std::move(operations))
     , m_id(id)
 {
@@ -465,7 +465,7 @@ void Operations::loopSetup(const std::string& file, bool readOnly, Done done)
     const int fd = ::open(file.c_str(), (readOnly ? O_RDONLY : O_RDWR) | O_CLOEXEC);
     Call call = makeCall(kManagerPath, interface::kManager, "LoopSetup", {});
     if (fd < 0) {
-        refuse(std::move(call), "org.cutefish.DiskUtility.Error.File", std::strerror(errno), std::move(done));
+        refuse(std::move(call), "org.properdesktop.DiskUtility.Error.File", std::strerror(errno), std::move(done));
         return;
     }
     call.arguments = {Variant(UnixFd::adopt(fd)), options({{"read-only", Variant(readOnly)}})};

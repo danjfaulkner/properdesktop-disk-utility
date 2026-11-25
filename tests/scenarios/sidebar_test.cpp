@@ -14,7 +14,7 @@
 
 #include <algorithm>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
 
 static std::string row(const std::string& id)

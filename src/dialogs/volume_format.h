@@ -90,12 +90,12 @@ public:
     // Why the filesystem cannot be chosen; empty when it can.
     std::string reason(const std::string& type) const;
 
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     udisks::Operations& m_operations;
     std::map<std::string, Entry> m_entries;
-    cutefish::base::WeakPtrFactory<FormatAvailability> m_weakFactory{this};
+    properdesktop::base::WeakPtrFactory<FormatAvailability> m_weakFactory{this};
 };
 
 } // namespace dialogs

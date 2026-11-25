@@ -3,7 +3,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-project(cutefish-disk-utility VERSION 1.0 LANGUAGES CXX)
+project(properdesktop-disk-utility VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(GNUInstallDirs)
 include(CTest)
 
-find_package(CutefishToolkit REQUIRED)
+find_package(ProperDesktopToolkit REQUIRED)
 
 add_library(disk-utility-core STATIC
     src/actions.cpp
@@ -42,7 +42,7 @@ add_library(disk-utility-core STATIC
     src/udisks/tree.cpp
 )
 target_include_directories(disk-utility-core PUBLIC src)
-target_link_libraries(disk-utility-core PUBLIC Cutefish::ToolkitBase)
+target_link_libraries(disk-utility-core PUBLIC ProperDesktop::ToolkitBase)
 
 # The glyphs, built in.
 file(GLOB DISK_UTILITY_ICONS CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/icons/*.svg)
@@ -85,7 +85,7 @@ add_library(disk-utility-ui STATIC
     ${DISK_UTILITY_EMBEDDED}
 )
 target_include_directories(disk-utility-ui PUBLIC src)
-target_link_libraries(disk-utility-ui PUBLIC disk-utility-core Cutefish::Toolkit)
+target_link_libraries(disk-utility-ui PUBLIC disk-utility-core ProperDesktop::Toolkit)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 target_compile_definitions(${PROJECT_NAME} PRIVATE DISK_UTILITY_VERSION="${PROJECT_VERSION}")
@@ -93,8 +93,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE disk-utility-ui)
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-cutefish_add_translations(cutefish-disk-utility SOURCES src DESKTOP_FILES cutefish-disk-utility.desktop)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cutefish-disk-utility.desktop
+properdesktop_add_translations(properdesktop-disk-utility SOURCES src DESKTOP_FILES properdesktop-disk-utility.desktop)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/properdesktop-disk-utility.desktop
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
 
 if(BUILD_TESTING)

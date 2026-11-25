@@ -22,8 +22,8 @@
 #include <chrono>
 #include <cmath>
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 using namespace std::chrono_literals;
 
 namespace views {
@@ -69,7 +69,7 @@ private:
 
 DetailPane::DetailPane(Context& context)
     : m_context(context)
-    , m_timer(std::make_unique<cutefish::base::Timer>())
+    , m_timer(std::make_unique<properdesktop::base::Timer>())
 {
     m_scroll = addChild<ScrollView>();
     m_scroll->setName("detail:scroll");

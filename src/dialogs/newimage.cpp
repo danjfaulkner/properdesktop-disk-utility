@@ -24,9 +24,9 @@
 #include <algorithm>
 #include <filesystem>
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace dialogs {
 
@@ -45,7 +45,7 @@ static std::vector<ChoiceButton::Item> items(const std::vector<std::string>& tex
 // The folder as the user knows it: ~ for the home folder.
 static std::string shownFolder(const std::string& folder)
 {
-    const std::string home = cutefish::base::paths::home();
+    const std::string home = properdesktop::base::paths::home();
     if (!home.empty() && (folder == home || folder.starts_with(home + "/")))
         return "~" + folder.substr(home.size());
     return folder;
@@ -54,10 +54,10 @@ static std::string shownFolder(const std::string& folder)
 static std::string defaultFolder()
 {
     std::error_code error;
-    const std::string documents = cutefish::base::paths::userDirectory(cutefish::base::paths::UserDirectory::Documents);
+    const std::string documents = properdesktop::base::paths::userDirectory(properdesktop::base::paths::UserDirectory::Documents);
     if (std::filesystem::is_directory(documents, error))
         return documents;
-    return cutefish::base::paths::home();
+    return properdesktop::base::paths::home();
 }
 
 NewImageDialog::NewImageDialog(views::Context& context, ChooseFolder chooseFolder)

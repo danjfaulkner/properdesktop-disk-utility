@@ -14,7 +14,7 @@
 #include <cstdio>
 #include <string>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
 
 namespace {

@@ -18,11 +18,11 @@
 #include <cstdio>
 #include <utility>
 
-using cutefish::base::dbus::ObjectPath;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
-using cutefish::i18n::trNoop;
+using properdesktop::base::dbus::ObjectPath;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
+using properdesktop::i18n::trNoop;
 
 namespace udisks {
 
@@ -30,12 +30,12 @@ static constexpr const char* kNothing = "—";
 
 std::string formatCount(uint64_t count)
 {
-    return cutefish::base::Locale::system().toString(int64_t(count));
+    return properdesktop::base::Locale::system().toString(int64_t(count));
 }
 
 std::string formatBytes(uint64_t bytes)
 {
-    const std::string counted = format(cutefish::i18n::trn("{n} byte", "{n} bytes", bytes),
+    const std::string counted = format(properdesktop::i18n::trn("{n} byte", "{n} bytes", bytes),
                                        {{"n", formatCount(bytes)}});
     if (bytes < 1000)
         return counted;
@@ -46,9 +46,9 @@ std::string formatDate(int64_t secondsSinceEpoch)
 {
     if (secondsSinceEpoch <= 0)
         return {};
-    const cutefish::base::Locale& locale = cutefish::base::Locale::system();
-    return locale.toString(cutefish::base::DateTime::fromSecondsSinceEpoch(secondsSinceEpoch),
-                           cutefish::base::Locale::FormatType::Short);
+    const properdesktop::base::Locale& locale = properdesktop::base::Locale::system();
+    return locale.toString(properdesktop::base::DateTime::fromSecondsSinceEpoch(secondsSinceEpoch),
+                           properdesktop::base::Locale::FormatType::Short);
 }
 
 struct NamedType

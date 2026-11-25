@@ -23,7 +23,7 @@ class Model;
 class BusClient : public Backend
 {
 public:
-    BusClient(Model& model, cutefish::base::dbus::Connection* bus);
+    BusClient(Model& model, properdesktop::base::dbus::Connection* bus);
     ~BusClient() override;
 
     BusClient(const BusClient&) = delete;
@@ -38,14 +38,14 @@ private:
     void release(uint64_t call);
 
     Model& m_model;
-    cutefish::base::dbus::Connection* m_bus;
+    properdesktop::base::dbus::Connection* m_bus;
     uint64_t m_generation = 0;
     uint64_t m_nextCall = 1;
     bool m_ownerKnown = false;
-    std::map<uint64_t, cutefish::base::dbus::PendingCall> m_calls;
-    std::vector<cutefish::base::dbus::Match> m_matches;
-    cutefish::base::dbus::NameWatch m_ownerWatch;
-    cutefish::base::WeakPtrFactory<BusClient> m_weakFactory{this};
+    std::map<uint64_t, properdesktop::base::dbus::PendingCall> m_calls;
+    std::vector<properdesktop::base::dbus::Match> m_matches;
+    properdesktop::base::dbus::NameWatch m_ownerWatch;
+    properdesktop::base::WeakPtrFactory<BusClient> m_weakFactory{this};
 };
 
 } // namespace udisks

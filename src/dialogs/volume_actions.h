@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class TextField;
@@ -63,18 +63,18 @@ private:
     FreeRegion m_region;
     std::string m_refusal;
     FormatAvailability m_formats;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     std::unique_ptr<PlanRunner> m_runner;
     std::unique_ptr<IdentityGuard> m_guard;
-    cutefish::ui::TextField* m_name = nullptr;
+    properdesktop::ui::TextField* m_name = nullptr;
     ChoiceButton* m_format = nullptr;
-    cutefish::ui::TextField* m_size = nullptr;
+    properdesktop::ui::TextField* m_size = nullptr;
     uint64_t m_chosenSize = 0;
     bool m_sizeTyped = false;
     Footnote* m_note = nullptr;
     Footnote* m_problem = nullptr;
-    cutefish::ui::DialogButton* m_add = nullptr;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    properdesktop::ui::DialogButton* m_add = nullptr;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
 };
 
 // Sets the handlers of Erase, Partition, Add Partition and Delete

@@ -26,7 +26,7 @@
 
 #include <gtest/gtest.h>
 
-using cutefish::base::dbus::UnixFd;
+using properdesktop::base::dbus::UnixFd;
 using namespace dialogs;
 using namespace udisks;
 using namespace udisks::fake;
@@ -79,7 +79,7 @@ protected:
 
     VariantMap options(const Call& call, size_t index) { return call.arguments.at(index).value<VariantMap>(); }
 
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     Model model;
     FakeBackend backend;
     Operations operations{model, backend};

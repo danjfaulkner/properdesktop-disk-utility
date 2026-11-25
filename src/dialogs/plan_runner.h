@@ -100,8 +100,8 @@ const udisks::Object* jobOf(const udisks::Model& model, const std::vector<std::s
 class PlanRunner
 {
 public:
-    static constexpr const char* kChangedError = "org.cutefish.DiskUtility.Error.Changed";
-    static constexpr const char* kStaleTableError = "org.cutefish.DiskUtility.Error.StaleTable";
+    static constexpr const char* kChangedError = "org.properdesktop.DiskUtility.Error.Changed";
+    static constexpr const char* kStaleTableError = "org.properdesktop.DiskUtility.Error.StaleTable";
 
     PlanRunner(const udisks::Model& model, udisks::Operations& operations, udisks::Identity subject,
                std::vector<PlanStep> steps);
@@ -124,9 +124,9 @@ public:
     bool succeeded() const { return !m_running && m_started && m_result.ok() && m_current == m_steps.size(); }
 
     // The index of the step that started.
-    cutefish::base::Signal<size_t> stepStarted;
+    properdesktop::base::Signal<size_t> stepStarted;
     // Every step ran, or one failed: result() says which.
-    cutefish::base::Signal<> finished;
+    properdesktop::base::Signal<> finished;
 
 private:
     void runStep();
@@ -146,7 +146,7 @@ private:
     bool m_clearedTable = false;
     std::unique_ptr<images::CopyJob> m_clearing;
     udisks::Operations::Hold m_clearingHold;
-    cutefish::base::WeakPtrFactory<PlanRunner> m_weakFactory{this};
+    properdesktop::base::WeakPtrFactory<PlanRunner> m_weakFactory{this};
 };
 
 } // namespace dialogs

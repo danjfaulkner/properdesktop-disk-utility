@@ -11,7 +11,7 @@
 
 #include <algorithm>
 
-using cutefish::i18n::tr;
+using properdesktop::i18n::tr;
 using udisks::Change;
 using udisks::Model;
 using udisks::Node;

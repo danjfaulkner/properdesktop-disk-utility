@@ -121,7 +121,7 @@ private:
 // A laptop's disks, attached things and images:
 //
 //   nvme0n1   internal NVMe, GPT: p1 EFI (vfat, /boot/efi, HintIgnore),
-//             p2 "Cutefish" (ext4, /)
+//             p2 "ProperDesktop" (ext4, /)
 //   sda       internal SATA, GPT: sda1 "Data" (NTFS, unmounted), free space
 //   sdb       USB stick, ejectable, MBR: sdb1 "STICK" (FAT32, /media/u/STICK)
 //   sdc       USB disk, power off, GPT: sdc1 LUKS unlocked as dm-0 "Secret"

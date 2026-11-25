@@ -21,9 +21,9 @@
 
 #include <algorithm>
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace dialogs {
 
@@ -73,7 +73,7 @@ void SmartDialog::schedule()
     if (m_scheduled)
         return;
     m_scheduled = true;
-    cutefish::base::EventLoop::current()->post([this, alive = std::weak_ptr<bool>(m_alive)] {
+    properdesktop::base::EventLoop::current()->post([this, alive = std::weak_ptr<bool>(m_alive)] {
         if (alive.expired())
             return;
         m_scheduled = false;

@@ -6,7 +6,7 @@
 
 #include "base/i18n.h"
 
-using cutefish::i18n::tr;
+using properdesktop::i18n::tr;
 
 namespace udisks {
 

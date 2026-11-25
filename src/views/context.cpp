@@ -7,7 +7,7 @@
 
 namespace views {
 
-Context::Context(Application& application, cutefish::ui::Window& window, ActionDispatcher& actions)
+Context::Context(Application& application, properdesktop::ui::Window& window, ActionDispatcher& actions)
     : application(application)
     , model(application.model())
     , operations(application.operations())

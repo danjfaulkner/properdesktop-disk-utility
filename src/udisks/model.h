@@ -88,12 +88,12 @@ public:
     bool matches(const Identity& identity) const;
 
     // Any update.
-    cutefish::base::Signal<> changed;
-    cutefish::base::Signal<const std::string&> objectAdded;
-    cutefish::base::Signal<const std::string&> objectRemoved;
+    properdesktop::base::Signal<> changed;
+    properdesktop::base::Signal<const std::string&> objectAdded;
+    properdesktop::base::Signal<const std::string&> objectRemoved;
     // Properties changed, or an interface came or went on an object that
     // stays.
-    cutefish::base::Signal<const std::string&> objectChanged;
+    properdesktop::base::Signal<const std::string&> objectChanged;
 
 private:
     bool holdsSystemItself(const std::string& block) const;

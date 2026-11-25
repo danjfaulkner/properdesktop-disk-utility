@@ -10,7 +10,7 @@
 
 #include <string>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 int main(int argc, char** argv)
 {

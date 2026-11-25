@@ -9,7 +9,7 @@
 
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class HeaderButton;
 class HeaderButtonGroup;
 class Label;
@@ -26,7 +26,7 @@ struct Context;
 // says, its tool tip the action and why it is disabled; Mount and Unmount
 // share a button, which shows Unmount while that is possible. The title
 // gives way when the tools leave it no room.
-class Toolbar : public cutefish::ui::View
+class Toolbar : public properdesktop::ui::View
 {
 public:
     Toolbar(Context& context, const double& sidebarWidth);
@@ -35,7 +35,7 @@ public:
     // The dispatcher's states changed.
     void refresh();
     // Null for Unmount, which is shown on Mount's button.
-    cutefish::ui::HeaderButton* button(Action action) const;
+    properdesktop::ui::HeaderButton* button(Action action) const;
 
 protected:
     void layout() override;
@@ -44,17 +44,17 @@ private:
     struct Tool
     {
         Action action;
-        cutefish::ui::HeaderButtonGroup* plate;
-        cutefish::ui::HeaderButton* button;
+        properdesktop::ui::HeaderButtonGroup* plate;
+        properdesktop::ui::HeaderButton* button;
     };
 
     void triggered(Action action);
 
     Context& m_context;
     const double& m_sidebarWidth;
-    cutefish::ui::Label* m_title;
+    properdesktop::ui::Label* m_title;
     std::vector<Tool> m_tools;
-    std::vector<cutefish::ui::HeaderButtonGroup*> m_plates;
+    std::vector<properdesktop::ui::HeaderButtonGroup*> m_plates;
 };
 
 } // namespace views

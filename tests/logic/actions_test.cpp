@@ -38,7 +38,7 @@ protected:
         return actionState(action, model, &operations, select(id)).enabled;
     }
 
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     Model model;
     FakeBackend backend;
     Operations operations{model, backend};

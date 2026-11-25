@@ -14,7 +14,7 @@
 
 class Application;
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class AboutDialog;
 class ConfirmDialog;
 class Menu;
@@ -47,7 +47,7 @@ public:
 
     void show();
     void activate(const std::string& token);
-    cutefish::ui::Window& window() { return *m_window; }
+    properdesktop::ui::Window& window() { return *m_window; }
     Context& context() { return *m_context; }
     ActionDispatcher& actions() { return *m_actions; }
     dialogs::DiskImages& diskImages() { return *m_diskImages; }
@@ -69,7 +69,7 @@ private:
     void showError(const std::string& title, const std::string& message);
 
     Application& m_application;
-    std::unique_ptr<cutefish::ui::Window> m_window;
+    std::unique_ptr<properdesktop::ui::Window> m_window;
     std::unique_ptr<ActionDispatcher> m_actions;
     std::unique_ptr<Context> m_context;
     DiskRoot* m_root;
@@ -78,15 +78,15 @@ private:
     // node goes.
     std::string m_selectedDisk;
     bool m_rebuildScheduled = false;
-    std::unique_ptr<cutefish::ui::Toast> m_toast;
-    std::unique_ptr<cutefish::ui::AboutDialog> m_about;
-    std::unique_ptr<cutefish::ui::ConfirmDialog> m_error;
-    std::unique_ptr<cutefish::ui::ConfirmDialog> m_quitConfirm;
-    std::unique_ptr<cutefish::ui::Menu> m_mainMenu;
-    std::unique_ptr<cutefish::ui::Menu> m_viewMenu;
+    std::unique_ptr<properdesktop::ui::Toast> m_toast;
+    std::unique_ptr<properdesktop::ui::AboutDialog> m_about;
+    std::unique_ptr<properdesktop::ui::ConfirmDialog> m_error;
+    std::unique_ptr<properdesktop::ui::ConfirmDialog> m_quitConfirm;
+    std::unique_ptr<properdesktop::ui::Menu> m_mainMenu;
+    std::unique_ptr<properdesktop::ui::Menu> m_viewMenu;
     std::unique_ptr<dialogs::DiskImages> m_diskImages;
     std::unique_ptr<dialogs::VolumeTools> m_volumeTools;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };
 

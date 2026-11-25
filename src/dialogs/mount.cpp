@@ -15,8 +15,8 @@
 #include "base/event_loop.h"
 #include "base/i18n.h"
 
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 using udisks::Object;
 
 namespace dialogs {
@@ -193,7 +193,7 @@ void Mounting::next()
         };
         // The next step may replace the dialog, which is still closing.
         m_unlock->onClosed = [this, alive = std::weak_ptr<bool>(m_alive)] {
-            cutefish::base::EventLoop::current()->post([this, alive] {
+            properdesktop::base::EventLoop::current()->post([this, alive] {
                 if (!alive.expired())
                     next();
             });

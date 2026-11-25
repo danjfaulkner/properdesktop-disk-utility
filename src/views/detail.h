@@ -11,11 +11,11 @@
 #include <memory>
 #include <optional>
 
-namespace cutefish::base {
+namespace properdesktop::base {
 class Timer;
 }
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class HeaderBackdrop;
 class ScrollView;
 }
@@ -31,7 +31,7 @@ class EmptyState;
 // (detailcontent.h and detailcards.h); "detail:empty" while there is no
 // disk. The usage is read again every few seconds; nothing is built again
 // unless something shown changed.
-class DetailPane : public cutefish::ui::View
+class DetailPane : public properdesktop::ui::View
 {
 public:
     explicit DetailPane(Context& context);
@@ -42,7 +42,7 @@ public:
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
     void refresh();
@@ -50,10 +50,10 @@ private:
     Context& m_context;
     Selection m_selection;
     std::optional<DetailContent> m_shown;
-    cutefish::ui::ScrollView* m_scroll;
-    cutefish::ui::HeaderBackdrop* m_backdrop;
+    properdesktop::ui::ScrollView* m_scroll;
+    properdesktop::ui::HeaderBackdrop* m_backdrop;
     EmptyState* m_empty;
-    std::unique_ptr<cutefish::base::Timer> m_timer;
+    std::unique_ptr<properdesktop::base::Timer> m_timer;
 };
 
 } // namespace views

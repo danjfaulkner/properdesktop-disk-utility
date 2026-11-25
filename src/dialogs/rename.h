@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class TextField;
@@ -48,10 +48,10 @@ private:
     std::string m_type;
     // The volume and that block as the dialog opened on them.
     std::vector<udisks::Identity> m_identities;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     std::unique_ptr<IdentityGuard> m_guard;
-    cutefish::ui::TextField* m_name;
-    cutefish::ui::DialogButton* m_rename;
+    properdesktop::ui::TextField* m_name;
+    properdesktop::ui::DialogButton* m_rename;
     Footnote* m_note;
     bool m_waiting = false;
     std::string m_error;

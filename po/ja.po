@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cutefish-disk-utility\n"
-"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"Project-Id-Version: properdesktop-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/danjfaulkner\n"
 "POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
@@ -2355,7 +2355,7 @@ msgstr "使用可能"
 msgid "Owner"
 msgstr "所有者"
 
-#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+#: src/views/diskwindow.cpp src/views/toolbar.cpp properdesktop-disk-utility.desktop
 msgid "Disk Utility"
 msgstr "ディスクユーティリティ"
 
@@ -2435,11 +2435,11 @@ msgstr "最小化"
 msgid "Zoom"
 msgstr "ズーム"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Manage disks, volumes and disk images"
 msgstr "ディスク、ボリューム、ディスクイメージを管理"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "ディスク;ドライブ;ボリューム;パーティション;フォーマット;消去;マウント;イメージ;ISO;USB;"
 

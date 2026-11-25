@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class Window;
@@ -33,7 +33,7 @@ struct SmartPage;
 class SmartDialog
 {
 public:
-    SmartDialog(views::Context& context, cutefish::ui::Window* parent, std::string drive);
+    SmartDialog(views::Context& context, properdesktop::ui::Window* parent, std::string drive);
     ~SmartDialog();
 
     SmartDialog(const SmartDialog&) = delete;
@@ -50,15 +50,15 @@ private:
 
     views::Context& m_context;
     std::string m_drive;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     // The last SmartGetAttributes answer; none before it came.
-    std::optional<cutefish::base::dbus::Variant::Items> m_attributes;
+    std::optional<properdesktop::base::dbus::Variant::Items> m_attributes;
     std::string m_error;
     // What shows now.
     std::shared_ptr<SmartPage> m_built;
     bool m_starting = false;
     bool m_scheduled = false;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };
 

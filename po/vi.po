@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cutefish-disk-utility\n"
-"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"Project-Id-Version: properdesktop-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/danjfaulkner\n"
 "POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
@@ -2355,7 +2355,7 @@ msgstr "Khả dụng"
 msgid "Owner"
 msgstr "Chủ sở hữu"
 
-#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+#: src/views/diskwindow.cpp src/views/toolbar.cpp properdesktop-disk-utility.desktop
 msgid "Disk Utility"
 msgstr "Tiện ích Ổ đĩa"
 
@@ -2435,11 +2435,11 @@ msgstr "Thu nhỏ"
 msgid "Zoom"
 msgstr "Phóng to"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Manage disks, volumes and disk images"
 msgstr "Quản lý đĩa, ổ đĩa và ảnh đĩa"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;Đĩa;Ổ đĩa;Phân vùng;Định dạng;Xóa;Gắn;Ảnh đĩa;"
 

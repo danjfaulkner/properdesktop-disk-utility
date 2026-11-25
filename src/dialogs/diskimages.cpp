@@ -25,9 +25,9 @@
 
 #include <unistd.h>
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace dialogs {
 
@@ -241,10 +241,10 @@ void DiskImages::newImageFromSelection(const Selection& selection)
         return;
     const udisks::Node node = *selection;
     const std::string name = udisks::displayName(m_context.model, node);
-    std::string folder = cutefish::base::paths::userDirectory(cutefish::base::paths::UserDirectory::Documents);
+    std::string folder = properdesktop::base::paths::userDirectory(properdesktop::base::paths::UserDirectory::Documents);
     std::error_code error;
     if (!std::filesystem::is_directory(folder, error))
-        folder = cutefish::base::paths::home();
+        folder = properdesktop::base::paths::home();
     chooseFile({FileRequest::Kind::SaveImage, fileNameFor(name), folder},
                [this, node, name](const std::string& path, bool) { makeImage(node, name, path); });
 }
@@ -304,7 +304,7 @@ void DiskImages::makeImage(const udisks::Node& node, const std::string& name, co
                     return;
                 // Its window may be handling the event that got us here.
                 std::shared_ptr<ConfirmDialog> confirm(std::move(m_confirm));
-                cutefish::base::EventLoop::current()->post([confirm] {});
+                properdesktop::base::EventLoop::current()->post([confirm] {});
             });
     m_confirm->show();
 }

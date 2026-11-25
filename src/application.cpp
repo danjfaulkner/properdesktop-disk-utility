@@ -18,9 +18,9 @@
 
 Application::Application()
     : m_model(std::make_unique<udisks::Model>())
-    , m_backend(std::make_unique<udisks::BusClient>(*m_model, cutefish::base::dbus::Connection::system()))
+    , m_backend(std::make_unique<udisks::BusClient>(*m_model, properdesktop::base::dbus::Connection::system()))
     , m_operations(std::make_unique<udisks::Operations>(*m_model, *m_backend))
-    , m_configPath(cutefish::base::paths::cutefishConfig("disk-utility"))
+    , m_configPath(properdesktop::base::paths::properdesktopConfig("disk-utility"))
     , m_probes(true)
 {
     // A mount or a new swap device changes what holds the system.
@@ -42,7 +42,7 @@ void Application::scheduleProbe()
     if (!m_probes || m_probeScheduled)
         return;
     m_probeScheduled = true;
-    cutefish::base::EventLoop::current()->post([this, alive = std::weak_ptr<bool>(m_alive)] {
+    properdesktop::base::EventLoop::current()->post([this, alive = std::weak_ptr<bool>(m_alive)] {
         if (alive.expired())
             return;
         m_probeScheduled = false;
@@ -56,7 +56,7 @@ void Application::open(const std::vector<std::string>& paths, const std::string&
     for (const std::string& path : paths) {
         std::filesystem::path file;
         if (path.find("://") != std::string::npos) {
-            const std::optional<std::string> local = cutefish::base::url::toLocalFile(path);
+            const std::optional<std::string> local = properdesktop::base::url::toLocalFile(path);
             if (!local)
                 continue;
             file = *local;
@@ -74,30 +74,30 @@ void Application::open(const std::vector<std::string>& paths, const std::string&
         openRequested.emit(files);
 }
 
-void Application::publish(cutefish::base::dbus::Connection* bus)
+void Application::publish(properdesktop::base::dbus::Connection* bus)
 {
     if (!bus)
         return;
-    m_object = std::make_unique<cutefish::base::dbus::Object>(bus, kPath, kService);
+    m_object = std::make_unique<properdesktop::base::dbus::Object>(bus, kPath, kService);
     m_object->addMethod(
         "open",
         [this](const std::vector<std::string>& paths, const std::string& activationToken) {
             activateRequested.emit(activationToken);
             open(paths);
         },
-        cutefish::base::dbus::ArgumentNames{{"paths", "activationToken"}, {}});
+        properdesktop::base::dbus::ArgumentNames{{"paths", "activationToken"}, {}});
     m_object->publish();
 }
 
-void Application::publishInstance(cutefish::base::dbus::Connection* bus)
+void Application::publishInstance(properdesktop::base::dbus::Connection* bus)
 {
     if (!bus)
         return;
     // The dock's view of a running application: the dock's Quit (and
     // Command+Q) ends it here rather than closing its window.
-    m_instance = std::make_unique<cutefish::base::dbus::Object>(bus, "/org/cutefish/Application",
-                                                                "org.cutefish.Application");
-    m_instance->addProperty("AppId", [] { return std::string("cutefish-disk-utility"); });
+    m_instance = std::make_unique<properdesktop::base::dbus::Object>(bus, "/org/properdesktop/Application",
+                                                                "org.properdesktop.Application");
+    m_instance->addProperty("AppId", [] { return std::string("properdesktop-disk-utility"); });
     m_instance->addProperty("ShowsInDock", [] { return true; });
     m_instance->addMethod(
         "Launch",
@@ -105,8 +105,8 @@ void Application::publishInstance(cutefish::base::dbus::Connection* bus)
             activateRequested.emit(activationToken);
             open(paths);
         },
-        cutefish::base::dbus::ArgumentNames{{"paths", "activationToken"}, {}});
+        properdesktop::base::dbus::ArgumentNames{{"paths", "activationToken"}, {}});
     m_instance->addMethod("Quit", [this] { quitRequested.emit(); });
     m_instance->publish();
-    bus->requestName("org.cutefish.Application.cutefish_disk_utility");
+    bus->requestName("org.properdesktop.Application.properdesktop_disk_utility");
 }

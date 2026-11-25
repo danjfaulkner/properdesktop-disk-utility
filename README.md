@@ -1,6 +1,6 @@
 # Disk Utility
 
-The disk utility of Cutefish Desktop. It lists the internal and external
+The disk utility of Proper Desktop. It lists the internal and external
 disks and the attached disk images with their partitions and volumes, and
 shows each one's capacity, usage, connection and S.M.A.R.T. health.
 
@@ -19,7 +19,7 @@ erased, partitioned, repaired or unmounted.
 
 ## Dependencies
 
-Disk Utility uses cutefish-toolkit, and UDisks2 at run time; GoogleTest
+Disk Utility uses properdesktop-toolkit, and UDisks2 at run time; GoogleTest
 for the tests. Each format needs its tools, which are optional: a format
 without them is offered disabled. e2fsprogs (ext4), exfatprogs (exFAT),
 dosfstools (FAT32), ntfs-3g (NTFS), btrfs-progs (Btrfs), xfsprogs (XFS).

@@ -17,7 +17,7 @@
 #include <functional>
 #include <map>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
 using namespace std::chrono_literals;
 

@@ -11,7 +11,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
 
 static std::string row(const std::string& id)
@@ -33,7 +33,7 @@ TEST(WindowTest, ListsTheDisks)
     EXPECT_TRUE(driver.shows(row("d:" + sample::kCard)));
     EXPECT_EQ(driver.countShown(row("v:" + sample::kEfi)), 0u);
     // The first volume is selected.
-    EXPECT_EQ(driver.text("detail:name"), "Cutefish");
+    EXPECT_EQ(driver.text("detail:name"), "ProperDesktop");
     EXPECT_EQ(driver.text("detail:mountPoint"), "/");
 }
 
@@ -95,7 +95,7 @@ TEST(WindowTest, ShowAllDevices)
     EXPECT_EQ(driver.text("detail:name"), "YMTC PC005 512GB");
     EXPECT_TRUE(driver.chooseMenuItem("View", "Show Only Volumes"));
     EXPECT_EQ(driver.countShown(row("d:" + sample::kNvme)), 0u);
-    EXPECT_EQ(driver.text("detail:name"), "Cutefish");
+    EXPECT_EQ(driver.text("detail:name"), "ProperDesktop");
 }
 
 TEST(WindowTest, FollowsTheDisks)
@@ -113,7 +113,7 @@ TEST(WindowTest, FollowsTheDisks)
     model.removeInterfaces(sample::kStickDrive, {udisks::interface::kDrive});
     EXPECT_TRUE(TestDriver::waitFor([&] { return driver.countShown(row("v:" + sample::kStickVolume)) == 0; }));
     driver.layout();
-    EXPECT_EQ(driver.text("detail:name"), "Cutefish");
+    EXPECT_EQ(driver.text("detail:name"), "ProperDesktop");
 
     // A label changed elsewhere shows.
     model.changeProperties(sample::kRoot, udisks::interface::kBlock, {{"IdLabel", udisks::Variant(std::string("Main"))}});

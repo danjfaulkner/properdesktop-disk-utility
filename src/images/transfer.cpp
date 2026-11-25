@@ -20,9 +20,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-using cutefish::base::dbus::UnixFd;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using properdesktop::base::dbus::UnixFd;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 using udisks::Model;
 using udisks::Object;
 

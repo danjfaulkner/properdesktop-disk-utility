@@ -10,7 +10,7 @@
 #include <memory>
 #include <string>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class Label;
@@ -52,12 +52,12 @@ private:
 
     views::Context& m_context;
     std::string m_doneMessage;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    cutefish::ui::ProgressBar* m_bar;
-    cutefish::ui::Label* m_status;
-    cutefish::ui::Label* m_timeLeft;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    properdesktop::ui::ProgressBar* m_bar;
+    properdesktop::ui::Label* m_status;
+    properdesktop::ui::Label* m_timeLeft;
     Footnote* m_error;
-    cutefish::ui::DialogButton* m_stop;
+    properdesktop::ui::DialogButton* m_stop;
     images::Transfer m_transfer;
     images::RateMeter m_meter;
     bool m_ontoBlock = false;

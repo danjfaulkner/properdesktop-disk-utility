@@ -17,7 +17,7 @@ struct Call
     std::string path;
     std::string interface;
     std::string method;
-    cutefish::base::dbus::Variant::Items arguments;
+    properdesktop::base::dbus::Variant::Items arguments;
     // Formatting and checking run as long as the disk takes, and a
     // password prompt as long as the user does.
     std::chrono::seconds timeout{24 * 60 * 60};
@@ -32,7 +32,7 @@ struct Result
     // or org.freedesktop.UDisks2.Error.Cancelled; empty on success.
     std::string errorName;
     std::string errorMessage;
-    cutefish::base::dbus::Variant::Items values;
+    properdesktop::base::dbus::Variant::Items values;
 
     bool ok() const { return errorName.empty(); }
     // The user dismissed the password dialog or cancelled the job.

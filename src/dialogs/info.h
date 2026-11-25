@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogWindow;
 class ScrollView;
 }
@@ -48,12 +48,12 @@ private:
 
     views::Context& m_context;
     udisks::Node m_node;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    cutefish::ui::ScrollView* m_scroll = nullptr;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    properdesktop::ui::ScrollView* m_scroll = nullptr;
     std::vector<udisks::PropertyGroup> m_groups;
     std::unique_ptr<SmartDialog> m_smart;
     bool m_scheduled = false;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };
 

@@ -9,7 +9,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
 
 static std::string row(const std::string& id)
@@ -22,7 +22,7 @@ TEST(DetailTest, MountedVolume)
     Scenario scenario;
     TestDriver& driver = scenario.driver;
     driver.click(row("v:" + sample::kRoot));
-    EXPECT_EQ(driver.text("detail:name"), "Cutefish");
+    EXPECT_EQ(driver.text("detail:name"), "ProperDesktop");
     EXPECT_EQ(driver.text("detail:mountPoint"), "/");
     EXPECT_EQ(driver.text("detail:type"), "ext4");
     EXPECT_EQ(driver.text("detail:device"), "nvme0n1p2");

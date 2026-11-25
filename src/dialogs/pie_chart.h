@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Label;
 }
 
@@ -21,7 +21,7 @@ namespace dialogs {
 // stretch of free space, clockwise from twelve o'clock in disk order, the
 // selected one lifted out a little. Handles on the rim mark the boundaries
 // that can be dragged.
-class PieChart : public cutefish::ui::View
+class PieChart : public properdesktop::ui::View
 {
 public:
     struct Wedge
@@ -48,10 +48,10 @@ public:
 
     // The middle of the wedge, and the boundary's handle, in the view's
     // coordinates.
-    cutefish::ui::PointF wedgeCentre(uint32_t id) const;
-    std::optional<cutefish::ui::PointF> handlePoint(size_t boundary) const;
+    properdesktop::ui::PointF wedgeCentre(uint32_t id) const;
+    std::optional<properdesktop::ui::PointF> handlePoint(size_t boundary) const;
 
-    cutefish::ui::SizeF sizeHint() const override { return {kSize, kSize}; }
+    properdesktop::ui::SizeF sizeHint() const override { return {kSize, kSize}; }
     bool acceptsPointer() const override { return true; }
 
     // A press, before the pie finds what is under it: whatever changes the
@@ -66,25 +66,25 @@ public:
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
-    void pointerPress(const cutefish::ui::PointerEvent& event) override;
-    void pointerMove(const cutefish::ui::PointerEvent& event) override;
-    void pointerRelease(const cutefish::ui::PointerEvent& event) override;
+    void paint(properdesktop::ui::Painter& painter) override;
+    void pointerPress(const properdesktop::ui::PointerEvent& event) override;
+    void pointerMove(const properdesktop::ui::PointerEvent& event) override;
+    void pointerRelease(const properdesktop::ui::PointerEvent& event) override;
 
 private:
     // Clockwise from twelve o'clock, in radians.
     double angleOf(uint64_t position) const;
     uint64_t positionOf(double angle) const;
-    double angleAt(cutefish::ui::PointF point) const;
-    cutefish::ui::PointF centre() const;
+    double angleAt(properdesktop::ui::PointF point) const;
+    properdesktop::ui::PointF centre() const;
     double radius() const;
-    cutefish::ui::Color wedgeColor(size_t index) const;
+    properdesktop::ui::Color wedgeColor(size_t index) const;
 
     uint64_t m_start = 0;
     uint64_t m_end = 1;
     std::vector<Wedge> m_wedges;
-    std::vector<cutefish::ui::Label*> m_names;
-    std::vector<cutefish::ui::Label*> m_sizes;
+    std::vector<properdesktop::ui::Label*> m_names;
+    std::vector<properdesktop::ui::Label*> m_sizes;
     std::optional<uint32_t> m_selected;
     std::vector<size_t> m_movable;
     std::optional<size_t> m_dragging;

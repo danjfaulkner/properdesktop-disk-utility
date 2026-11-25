@@ -20,9 +20,9 @@
 #include <algorithm>
 #include <filesystem>
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace dialogs {
 
@@ -80,7 +80,7 @@ void RestoreDialog::dropConfirmation()
         return;
     // Its window and callback may be running the click that brought us here.
     std::shared_ptr<ConfirmDialog> confirm(std::move(m_confirm));
-    cutefish::base::EventLoop::current()->post([confirm] {});
+    properdesktop::base::EventLoop::current()->post([confirm] {});
 }
 
 void RestoreDialog::build()

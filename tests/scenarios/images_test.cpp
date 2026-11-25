@@ -27,11 +27,11 @@
 #include <sys/sysmacros.h>
 #include <unistd.h>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks;
 using namespace udisks::fake;
-using cutefish::base::dbus::ObjectPath;
-using cutefish::base::dbus::UnixFd;
+using properdesktop::base::dbus::ObjectPath;
+using properdesktop::base::dbus::UnixFd;
 using FileRequest = dialogs::DiskImages::FileRequest;
 
 static std::vector<std::string> methods(const std::vector<Call>& calls)

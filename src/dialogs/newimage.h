@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class Label;
@@ -75,26 +75,26 @@ private:
     ChooseFolder m_chooseFolder;
     std::string m_folder;
     std::unique_ptr<FormatAvailability> m_formats;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     std::unique_ptr<images::BlankImageMaker> m_maker;
     // A failure stays shown until the form changes.
     std::string m_error;
 
-    cutefish::ui::TextField* m_saveAs = nullptr;
-    cutefish::ui::Label* m_where = nullptr;
-    cutefish::ui::TextField* m_name = nullptr;
-    cutefish::ui::TextField* m_size = nullptr;
+    properdesktop::ui::TextField* m_saveAs = nullptr;
+    properdesktop::ui::Label* m_where = nullptr;
+    properdesktop::ui::TextField* m_name = nullptr;
+    properdesktop::ui::TextField* m_size = nullptr;
     ChoiceButton* m_unit = nullptr;
     ChoiceButton* m_format = nullptr;
     ChoiceButton* m_scheme = nullptr;
     ChoiceButton* m_encryption = nullptr;
     Card* m_passwords = nullptr;
-    cutefish::ui::TextField* m_password = nullptr;
-    cutefish::ui::TextField* m_verify = nullptr;
-    cutefish::ui::ProgressBar* m_bar = nullptr;
+    properdesktop::ui::TextField* m_password = nullptr;
+    properdesktop::ui::TextField* m_verify = nullptr;
+    properdesktop::ui::ProgressBar* m_bar = nullptr;
     Footnote* m_note = nullptr;
-    cutefish::ui::DialogButton* m_create = nullptr;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    properdesktop::ui::DialogButton* m_create = nullptr;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
 };
 
 } // namespace dialogs

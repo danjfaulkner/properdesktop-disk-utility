@@ -24,8 +24,8 @@
 
 using namespace udisks;
 using namespace udisks::fake;
-using cutefish::base::dbus::Variant;
-using cutefish::base::dbus::VariantMap;
+using properdesktop::base::dbus::Variant;
+using properdesktop::base::dbus::VariantMap;
 
 namespace fs = std::filesystem;
 
@@ -67,7 +67,7 @@ protected:
         return {};
     }
 
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     Model model;
     FakeBackend backend;
     Operations operations{model, backend};

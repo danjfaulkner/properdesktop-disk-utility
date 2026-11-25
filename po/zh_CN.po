@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cutefish-disk-utility\n"
-"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"Project-Id-Version: properdesktop-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/danjfaulkner\n"
 "POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
@@ -2355,7 +2355,7 @@ msgstr "可用"
 msgid "Owner"
 msgstr "所有者"
 
-#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+#: src/views/diskwindow.cpp src/views/toolbar.cpp properdesktop-disk-utility.desktop
 msgid "Disk Utility"
 msgstr "磁盘工具"
 
@@ -2435,11 +2435,11 @@ msgstr "最小化"
 msgid "Zoom"
 msgstr "缩放"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Manage disks, volumes and disk images"
 msgstr "管理磁盘、宗卷和磁盘映像"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "磁盘;硬盘;驱动器;宗卷;分区;格式化;抹掉;挂载;映像;ISO;USB;U盘;"
 

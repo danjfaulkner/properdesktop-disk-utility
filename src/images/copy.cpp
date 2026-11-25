@@ -16,8 +16,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace images {
 
@@ -152,7 +152,7 @@ void CopyJob::start(int source, int target, uint64_t length, CopyOptions options
     }
     m_running = true;
     m_cancel = false;
-    const cutefish::base::LoopHandle loop = cutefish::base::EventLoop::current()->handle();
+    const properdesktop::base::LoopHandle loop = properdesktop::base::EventLoop::current()->handle();
     const std::weak_ptr<bool> alive = m_alive;
     m_thread = std::thread([this, source, target, length, options, loop, alive] {
         using Clock = std::chrono::steady_clock;

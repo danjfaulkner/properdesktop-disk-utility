@@ -129,7 +129,7 @@ public:
 
     // The selection, the model or the busy state changed, or a handler was
     // set: every state may have changed.
-    cutefish::base::Signal<> statesChanged;
+    properdesktop::base::Signal<> statesChanged;
 
 private:
     const udisks::Model& m_model;
@@ -137,5 +137,5 @@ private:
     Selection m_selection;
     std::vector<std::pair<Action, Handler>> m_handlers;
     std::vector<std::pair<Action, Refinement>> m_refinements;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
 };

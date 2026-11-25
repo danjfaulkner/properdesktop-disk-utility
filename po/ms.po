@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cutefish-disk-utility\n"
-"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"Project-Id-Version: properdesktop-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/danjfaulkner\n"
 "POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
@@ -2355,7 +2355,7 @@ msgstr "Tersedia"
 msgid "Owner"
 msgstr "Pemilik"
 
-#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+#: src/views/diskwindow.cpp src/views/toolbar.cpp properdesktop-disk-utility.desktop
 msgid "Disk Utility"
 msgstr "Utiliti Cakera"
 
@@ -2435,11 +2435,11 @@ msgstr "Minimumkan"
 msgid "Zoom"
 msgstr "Zum"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Manage disks, volumes and disk images"
 msgstr "Urus cakera, volum dan imej cakera"
 
-#: cutefish-disk-utility.desktop
+#: properdesktop-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;Cakera;Pemacu;Volum;Petak;Padam;Lekap;Imej;"
 

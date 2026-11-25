@@ -25,8 +25,8 @@
 #include <algorithm>
 #include <cmath>
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace views {
 
@@ -400,7 +400,7 @@ void Sidebar::reload()
     while (!m_list->children().empty())
         old.push_back(m_list->takeChild(m_list->children().front().get()));
     if (!old.empty())
-        cutefish::base::EventLoop::current()->post([old = std::move(old)] {});
+        properdesktop::base::EventLoop::current()->post([old = std::move(old)] {});
     m_rows.clear();
 
     const bool disclosureColumn = m_context.viewMode == udisks::ViewMode::AllDevices;

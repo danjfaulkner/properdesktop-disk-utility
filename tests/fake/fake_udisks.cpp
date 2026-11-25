@@ -9,8 +9,8 @@
 
 namespace udisks::fake {
 
-using cutefish::base::EventLoop;
-using cutefish::base::dbus::ObjectPath;
+using properdesktop::base::EventLoop;
+using properdesktop::base::dbus::ObjectPath;
 
 static void post(Done done, Result result)
 {
@@ -273,7 +273,7 @@ Model::Objects sampleTree()
     const std::string root = tree.addPartition(
         nvme, "nvme0n1p2", 2, rootOffset,
         BlockSpec{.size = nvmeSize - rootOffset - kMiB, .deviceNumber = makedev(259, 2), .idUsage = "filesystem",
-                  .idType = "ext4", .idVersion = "1.0", .idLabel = "Cutefish",
+                  .idType = "ext4", .idVersion = "1.0", .idLabel = "ProperDesktop",
                   .idUuid = "1c8f081f-c3e2-4dc2-823a-fa455249cbb6", .hintSystem = true},
         "0fc63daf-8483-4772-8e79-3d69d8477de4");
     tree.setFilesystem(root, {"/"});

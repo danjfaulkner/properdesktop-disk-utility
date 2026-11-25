@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ConfirmDialog;
 class FileChooser;
 }
@@ -73,7 +73,7 @@ public:
     NewImageDialog* newImageDialog() const { return m_newImage.get(); }
     RestoreDialog* restoreDialog() const { return m_restore.get(); }
     CopyDialog* copyDialog() const { return m_copy.get(); }
-    cutefish::ui::ConfirmDialog* confirmation() const { return m_confirm.get(); }
+    properdesktop::ui::ConfirmDialog* confirmation() const { return m_confirm.get(); }
     // A copy onto an image file or a disk is running.
     bool isCopying() const;
 
@@ -89,15 +89,15 @@ private:
 
     views::Context& m_context;
     FileDialog m_fileDialog;
-    std::unique_ptr<cutefish::ui::FileChooser> m_chooser;
+    std::unique_ptr<properdesktop::ui::FileChooser> m_chooser;
     std::unique_ptr<NewImageDialog> m_newImage;
     std::unique_ptr<RestoreDialog> m_restore;
     std::unique_ptr<CopyDialog> m_copy;
-    std::unique_ptr<cutefish::ui::ConfirmDialog> m_confirm;
+    std::unique_ptr<properdesktop::ui::ConfirmDialog> m_confirm;
     std::unique_ptr<IdentityGuard> m_confirmGuard;
     // The disk to select once the sidebar lists it.
     std::string m_pendingSelection;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };
 

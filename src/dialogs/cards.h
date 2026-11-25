@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class RowLayout;
@@ -40,42 +40,42 @@ inline constexpr double buttonSpacing = 8;
 } // namespace metrics
 
 // A rounded panel of rows, edge to edge, in the second background colour.
-class Card : public cutefish::ui::ColumnLayout
+class Card : public properdesktop::ui::ColumnLayout
 {
 public:
     Card();
 
 protected:
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 };
 
 // A row of a card: its label, then whatever is added after it, against the
 // row's end. The hairline under it stops short of the card's padding.
-class CardRow : public cutefish::ui::View
+class CardRow : public properdesktop::ui::View
 {
 public:
     explicit CardRow(std::string text = {});
 
-    cutefish::ui::Label* label() const { return m_label; }
-    cutefish::ui::RowLayout* content() const { return m_row; }
+    properdesktop::ui::Label* label() const { return m_label; }
+    properdesktop::ui::RowLayout* content() const { return m_row; }
     template<typename T, typename... Args>
     T* addContent(Args&&... args)
     {
         return m_row->addChild<T>(std::forward<Args>(args)...);
     }
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     double heightForWidth(double width) const override;
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
     bool isLastRow() const;
 
-    cutefish::ui::RowLayout* m_row;
-    cutefish::ui::Label* m_label;
+    properdesktop::ui::RowLayout* m_row;
+    properdesktop::ui::Label* m_label;
 };
 
 // A label and its value in secondary text, which can be selected and
@@ -86,13 +86,13 @@ public:
     InfoRow(std::string text, std::string value);
 
     void setValue(std::string value);
-    cutefish::ui::TextArea* value() const { return m_value; }
+    properdesktop::ui::TextArea* value() const { return m_value; }
 
 protected:
     void layout() override;
 
 private:
-    cutefish::ui::TextArea* m_value;
+    properdesktop::ui::TextArea* m_value;
 };
 
 // A label and a frameless text field, its text against the row's end.
@@ -101,26 +101,26 @@ class TextFieldRow : public CardRow
 public:
     TextFieldRow(std::string text, double fieldWidth);
 
-    cutefish::ui::TextField* field() const { return m_field; }
+    properdesktop::ui::TextField* field() const { return m_field; }
 
     bool acceptsPointer() const override { return true; }
 
 protected:
-    void pointerPress(const cutefish::ui::PointerEvent& event) override;
+    void pointerPress(const properdesktop::ui::PointerEvent& event) override;
 
 private:
-    cutefish::ui::TextField* m_field;
+    properdesktop::ui::TextField* m_field;
 };
 
 // A section's name over its card, lined up with the rows' text.
-class SectionLabel : public cutefish::ui::Label
+class SectionLabel : public properdesktop::ui::Label
 {
 public:
     explicit SectionLabel(std::string text);
 };
 
 // Small secondary text under a card; hidden while empty.
-class Footnote : public cutefish::ui::Label
+class Footnote : public properdesktop::ui::Label
 {
 public:
     explicit Footnote(std::string text = {});
@@ -132,7 +132,7 @@ public:
 
 // A row of dialog buttons: the primary one and its companions at the end,
 // anything destructive or extra at the start.
-class Footer : public cutefish::ui::View
+class Footer : public properdesktop::ui::View
 {
 public:
     template<typename T, typename... Args>
@@ -150,22 +150,22 @@ public:
         return view;
     }
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     double heightForWidth(double) const override { return sizeHint().height; }
 
 protected:
     void layout() override;
 
 private:
-    std::vector<cutefish::ui::View*> m_start;
-    std::vector<cutefish::ui::View*> m_end;
+    std::vector<properdesktop::ui::View*> m_start;
+    std::vector<properdesktop::ui::View*> m_end;
 };
 
 // The dialogs' column: cards, section labels, notes and the footer, one
 // under another with the dialog's spacing; a label sits close over its
 // card and a note close under it. Labels and notes line up with the rows'
 // text.
-class Form : public cutefish::ui::View
+class Form : public properdesktop::ui::View
 {
 public:
     template<typename T, typename... Args>
@@ -179,7 +179,7 @@ public:
     // Added last.
     Footer* addFooter() { return add<Footer>(); }
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     double heightForWidth(double width) const override;
 
 protected:
@@ -187,19 +187,19 @@ protected:
 
 private:
     double spacingAfter(size_t index) const;
-    static double inset(const cutefish::ui::View* child);
+    static double inset(const properdesktop::ui::View* child);
 };
 
 // The content of an edge-to-edge dialog: cards that scroll, above a footer
 // of buttons. The scroll view spans the window from edge to edge, so its bar
 // runs along the window's edge, and reaches the window's bottom while the
 // footer is empty; the cards and the footer keep the dialog's padding.
-class ScrollingForm : public cutefish::ui::View
+class ScrollingForm : public properdesktop::ui::View
 {
 public:
     explicit ScrollingForm(std::string scrollName);
 
-    cutefish::ui::ScrollView* scroll;
+    properdesktop::ui::ScrollView* scroll;
     Form* form;
     // Shown once it has buttons.
     Footer* footer;

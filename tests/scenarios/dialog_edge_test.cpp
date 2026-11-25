@@ -15,10 +15,10 @@
 #include <tuple>
 #include <vector>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
-using cutefish::base::dbus::Variant;
-using cutefish::base::dbus::VariantMap;
+using properdesktop::base::dbus::Variant;
+using properdesktop::base::dbus::VariantMap;
 
 static std::unique_ptr<TestDriver> over(TestDriver& driver)
 {

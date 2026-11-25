@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class TextField;
@@ -47,9 +47,9 @@ private:
 
     views::Context& m_context;
     std::string m_block;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    cutefish::ui::TextField* m_passphrase;
-    cutefish::ui::DialogButton* m_unlock;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    properdesktop::ui::TextField* m_passphrase;
+    properdesktop::ui::DialogButton* m_unlock;
     Footnote* m_error;
     bool m_waiting = false;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);

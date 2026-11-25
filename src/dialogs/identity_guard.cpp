@@ -11,8 +11,8 @@
 #include "base/i18n.h"
 #include "ui/dialog_window.h"
 
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace dialogs {
 
@@ -34,7 +34,7 @@ IdentityGuard::IdentityGuard(views::Context& context, std::vector<udisks::Identi
 }
 
 IdentityGuard::IdentityGuard(views::Context& context, std::vector<udisks::Identity> identities, std::string name,
-                             cutefish::ui::DialogWindow& dialog, std::function<bool()> busy)
+                             properdesktop::ui::DialogWindow& dialog, std::function<bool()> busy)
     : m_context(context)
     , m_name(std::move(name))
     , m_dialog(&dialog)
@@ -73,7 +73,7 @@ void IdentityGuard::stopWaiting()
 {
     if (m_idleTimer < 0)
         return;
-    if (cutefish::base::EventLoop* loop = cutefish::base::EventLoop::current())
+    if (properdesktop::base::EventLoop* loop = properdesktop::base::EventLoop::current())
         loop->stopTimer(m_idleTimer);
     m_idleTimer = -1;
 }
@@ -84,7 +84,7 @@ void IdentityGuard::waitUntilIdle()
 {
     if (m_idleTimer >= 0)
         return;
-    m_idleTimer = cutefish::base::EventLoop::current()->startTimer(std::chrono::milliseconds(50), true, [this] {
+    m_idleTimer = properdesktop::base::EventLoop::current()->startTimer(std::chrono::milliseconds(50), true, [this] {
         if (m_busy && m_busy())
             return;
         stopWaiting();

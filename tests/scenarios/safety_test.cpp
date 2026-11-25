@@ -12,9 +12,9 @@
 
 #include <sys/sysmacros.h>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
-using cutefish::base::dbus::Variant;
+using properdesktop::base::dbus::Variant;
 
 static constexpr uint64_t kMiB = 1024 * 1024;
 

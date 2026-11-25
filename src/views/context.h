@@ -14,7 +14,7 @@
 
 class Application;
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Window;
 }
 
@@ -29,14 +29,14 @@ namespace views {
 // actions, and the sidebar's tree as shown now.
 struct Context
 {
-    Context(Application& application, cutefish::ui::Window& window, ActionDispatcher& actions);
+    Context(Application& application, properdesktop::ui::Window& window, ActionDispatcher& actions);
 
     Application& application;
     udisks::Model& model;
     udisks::Operations& operations;
     ActionDispatcher& actions;
     // The main window, which dialogs belong to.
-    cutefish::ui::Window& window;
+    properdesktop::ui::Window& window;
 
     udisks::ViewMode viewMode = udisks::ViewMode::Volumes;
     // Built again whenever the model changes, before treeChanged.
@@ -51,7 +51,7 @@ struct Context
     // message.
     std::function<void(const std::string& title, const std::string& message)> showError;
 
-    cutefish::base::Signal<> treeChanged;
+    properdesktop::base::Signal<> treeChanged;
 };
 
 } // namespace views

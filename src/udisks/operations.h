@@ -45,8 +45,8 @@ struct FormatOptions
 class Operations
 {
 public:
-    static constexpr const char* kSystemError = "org.cutefish.DiskUtility.Error.System";
-    static constexpr const char* kBusyError = "org.cutefish.DiskUtility.Error.Busy";
+    static constexpr const char* kSystemError = "org.properdesktop.DiskUtility.Error.System";
+    static constexpr const char* kBusyError = "org.properdesktop.DiskUtility.Error.Busy";
 
     Operations(Model& model, Backend& backend);
     ~Operations();
@@ -137,17 +137,17 @@ public:
 
     private:
         friend class Operations;
-        Hold(cutefish::base::WeakPtr<Operations> operations, uint64_t id);
+        Hold(properdesktop::base::WeakPtr<Operations> operations, uint64_t id);
 
-        cutefish::base::WeakPtr<Operations> m_operations;
+        properdesktop::base::WeakPtr<Operations> m_operations;
         uint64_t m_id = 0;
     };
     [[nodiscard]] Hold hold(const std::string& path);
 
-    cutefish::base::Signal<> busyChanged;
+    properdesktop::base::Signal<> busyChanged;
     // Every result, after its done: the call's method and object, as for a
     // window's error alert.
-    cutefish::base::Signal<const Call&, const Result&> finished;
+    properdesktop::base::Signal<const Call&, const Result&> finished;
 
 private:
     struct Step
@@ -166,7 +166,7 @@ private:
     uint64_t m_nextId = 1;
     // A running call's or a hold's subject and its disk.
     std::map<uint64_t, std::pair<std::string, std::string>> m_running;
-    cutefish::base::WeakPtrFactory<Operations> m_weakFactory{this};
+    properdesktop::base::WeakPtrFactory<Operations> m_weakFactory{this};
 };
 
 } // namespace udisks

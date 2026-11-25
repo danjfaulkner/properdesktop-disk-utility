@@ -20,8 +20,8 @@
 
 using namespace udisks;
 using namespace udisks::fake;
-using cutefish::base::dbus::ObjectPath;
-using cutefish::base::dbus::UnixFd;
+using properdesktop::base::dbus::ObjectPath;
+using properdesktop::base::dbus::UnixFd;
 
 static Result value(Variant item)
 {
@@ -39,7 +39,7 @@ protected:
         return call.arguments.at(index).value<VariantMap>();
     }
 
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     Model model;
     FakeBackend backend;
     Operations operations{model, backend};

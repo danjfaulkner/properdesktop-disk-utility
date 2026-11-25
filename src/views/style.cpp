@@ -10,8 +10,8 @@
 
 #include <array>
 
-using cutefish::ui::Color;
-using cutefish::ui::Theme;
+using properdesktop::ui::Color;
+using properdesktop::ui::Theme;
 
 namespace views {
 
@@ -84,7 +84,7 @@ Color otherSpace()
 
 Color partition(size_t index)
 {
-    namespace accent = cutefish::ui::accent;
+    namespace accent = properdesktop::ui::accent;
     static constexpr std::array<Color, 6> colors = {accent::blue, accent::purple, accent::orange,
                                                     accent::green, accent::pink, accent::red};
     return colors[index % colors.size()];

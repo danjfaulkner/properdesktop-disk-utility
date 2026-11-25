@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::base::dbus {
+namespace properdesktop::base::dbus {
 class Connection;
 class Object;
 }
@@ -24,7 +24,7 @@ class Operations;
 class Application
 {
 public:
-    static constexpr const char* kService = "org.cutefish.DiskUtility";
+    static constexpr const char* kService = "org.properdesktop.DiskUtility";
     static constexpr const char* kPath = "/DiskUtility";
 
     // UDisks2 on the system bus; the devices of the running system are found
@@ -45,19 +45,19 @@ public:
     const std::string& configPath() const { return m_configPath; }
 
     // The single instance's object, before its name is asked for.
-    void publish(cutefish::base::dbus::Connection* bus);
+    void publish(properdesktop::base::dbus::Connection* bus);
     // The running-application object the dock follows, once the name is ours.
-    void publishInstance(cutefish::base::dbus::Connection* bus);
+    void publishInstance(properdesktop::base::dbus::Connection* bus);
     // Disk image files from the command line or another launch: paths or
     // file: URLs. A relative path is taken from the directory when one is
     // given, and dropped otherwise.
     void open(const std::vector<std::string>& paths, const std::string& directory = {});
 
     // Another launch asked for the window.
-    cutefish::base::Signal<const std::string&> activateRequested;
-    cutefish::base::Signal<> quitRequested;
+    properdesktop::base::Signal<const std::string&> activateRequested;
+    properdesktop::base::Signal<> quitRequested;
     // Disk images to attach.
-    cutefish::base::Signal<const std::vector<std::string>&> openRequested;
+    properdesktop::base::Signal<const std::vector<std::string>&> openRequested;
 
 private:
     void scheduleProbe();
@@ -68,8 +68,8 @@ private:
     std::string m_configPath;
     bool m_probes = false;
     bool m_probeScheduled = false;
-    std::unique_ptr<cutefish::base::dbus::Object> m_object;
-    std::unique_ptr<cutefish::base::dbus::Object> m_instance;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::unique_ptr<properdesktop::base::dbus::Object> m_object;
+    std::unique_ptr<properdesktop::base::dbus::Object> m_instance;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };

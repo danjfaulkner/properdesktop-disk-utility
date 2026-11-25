@@ -16,7 +16,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class HeaderButton;
@@ -92,29 +92,29 @@ private:
     // Stop was clicked on the running step's job.
     bool m_stopped = false;
     FormatAvailability m_formats;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     std::unique_ptr<PlanRunner> m_runner;
     std::unique_ptr<IdentityGuard> m_guard;
 
     PieChart* m_pie = nullptr;
-    cutefish::ui::HeaderButton* m_add = nullptr;
-    cutefish::ui::HeaderButton* m_remove = nullptr;
-    cutefish::ui::TextField* m_name = nullptr;
+    properdesktop::ui::HeaderButton* m_add = nullptr;
+    properdesktop::ui::HeaderButton* m_remove = nullptr;
+    properdesktop::ui::TextField* m_name = nullptr;
     ChoiceButton* m_format = nullptr;
-    cutefish::ui::TextField* m_size = nullptr;
+    properdesktop::ui::TextField* m_size = nullptr;
     Footnote* m_note = nullptr;
     Footnote* m_problem = nullptr;
-    cutefish::ui::DialogButton* m_apply = nullptr;
-    cutefish::ui::DialogButton* m_revert = nullptr;
+    properdesktop::ui::DialogButton* m_apply = nullptr;
+    properdesktop::ui::DialogButton* m_revert = nullptr;
 
-    cutefish::ui::Label* m_status = nullptr;
-    cutefish::ui::ProgressBar* m_bar = nullptr;
+    properdesktop::ui::Label* m_status = nullptr;
+    properdesktop::ui::ProgressBar* m_bar = nullptr;
     Footnote* m_stepNote = nullptr;
     Footnote* m_error = nullptr;
-    cutefish::ui::DialogButton* m_done = nullptr;
-    cutefish::ui::DialogButton* m_stop = nullptr;
+    properdesktop::ui::DialogButton* m_done = nullptr;
+    properdesktop::ui::DialogButton* m_stop = nullptr;
 
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };
 

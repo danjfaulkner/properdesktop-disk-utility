@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Menu;
 class ScrollView;
 }
@@ -30,7 +30,7 @@ class SidebarRow;
 // "sidebar:section:<n>". A click selects through Context::select; Up and
 // Down move the selection, Left and Right fold and unfold a disk; a right
 // click opens the actions' menu over the row.
-class Sidebar : public cutefish::ui::View
+class Sidebar : public properdesktop::ui::View
 {
 public:
     explicit Sidebar(Context& context);
@@ -58,27 +58,27 @@ public:
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
-    bool keyPress(const cutefish::ui::KeyEvent& event) override;
+    void paint(properdesktop::ui::Painter& painter) override;
+    bool keyPress(const properdesktop::ui::KeyEvent& event) override;
 
 private:
     friend class SidebarRow;
 
     void rowPressed(SidebarRow* row);
     void ejectPressed(SidebarRow* row);
-    void openMenu(SidebarRow* row, cutefish::ui::PointF position);
+    void openMenu(SidebarRow* row, properdesktop::ui::PointF position);
     // The rows shown, in order.
     std::vector<SidebarRow*> shownRows() const;
     void moveTo(SidebarRow* row);
     void updateFolding();
 
     Context& m_context;
-    cutefish::ui::ScrollView* m_scroll;
+    properdesktop::ui::ScrollView* m_scroll;
     SidebarList* m_list;
     std::vector<SidebarRow*> m_rows;
     std::string m_current;
     std::set<std::string> m_collapsed;
-    std::unique_ptr<cutefish::ui::Menu> m_menu;
+    std::unique_ptr<properdesktop::ui::Menu> m_menu;
     std::vector<MenuEntry> m_menuEntries;
 };
 

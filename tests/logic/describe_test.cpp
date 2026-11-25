@@ -43,7 +43,7 @@ TEST_F(DescribeTest, Names)
     EXPECT_EQ(displayName(model, node("d:" + sample::kNvme)), "YMTC PC005 512GB");
     EXPECT_EQ(displayName(model, node("d:" + sample::kSata)), "Seagate ST1000LM035");
     EXPECT_EQ(displayName(model, node("d:" + sample::kImage)), "debian.iso");
-    EXPECT_EQ(displayName(model, node("v:" + sample::kRoot)), "Cutefish");
+    EXPECT_EQ(displayName(model, node("v:" + sample::kRoot)), "ProperDesktop");
     EXPECT_EQ(displayName(model, node("v:" + sample::kEfi)), "EFI");
     // The cleartext block's label, and the size while locked.
     EXPECT_EQ(displayName(model, node("v:" + sample::kUnlocked)), "Secret");
@@ -171,7 +171,7 @@ TEST_F(DescribeTest, UsageOfADisk)
 
 static constexpr uint64_t kMB = 1000 * 1000;
 
-using cutefish::base::Locale;
+using properdesktop::base::Locale;
 
 TEST(SizeTest, NumbersInTheUnit)
 {

@@ -2,7 +2,7 @@
 Version=1.0
 Name=Disk Utility
 Comment=Manage disks, volumes and disk images
-Exec=cutefish-disk-utility %F
+Exec=properdesktop-disk-utility %F
 Icon=gnome-disks
 Terminal=false
 Type=Application

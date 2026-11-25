@@ -11,8 +11,8 @@
 
 using namespace udisks;
 using namespace udisks::fake;
-using cutefish::base::dbus::ObjectPath;
-using cutefish::base::dbus::Type;
+using properdesktop::base::dbus::ObjectPath;
+using properdesktop::base::dbus::Type;
 
 static Variant mountPoints(const std::vector<std::string>& points)
 {
@@ -34,7 +34,7 @@ TEST(ModelTest, ParsesTheObjects)
     ASSERT_TRUE(root->block && root->partition && root->filesystem);
     EXPECT_EQ(root->block->device, "/dev/nvme0n1p2");
     EXPECT_EQ(root->block->idType, "ext4");
-    EXPECT_EQ(root->block->idLabel, "Cutefish");
+    EXPECT_EQ(root->block->idLabel, "ProperDesktop");
     EXPECT_EQ(root->block->drive, sample::kNvmeDrive);
     EXPECT_TRUE(root->block->cryptoBackingDevice.empty());
     EXPECT_EQ(root->partition->number, 2u);

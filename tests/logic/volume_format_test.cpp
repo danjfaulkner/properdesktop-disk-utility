@@ -108,7 +108,7 @@ TEST(VolumeFormatTest, Alignment)
 
 TEST(VolumeFormatTest, AvailabilityFollowsCanFormat)
 {
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     Model model;
     loadSample(model);
     FakeBackend backend;

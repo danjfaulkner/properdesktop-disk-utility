@@ -35,8 +35,8 @@
 #include <algorithm>
 #include <cmath>
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace views {
 
@@ -75,7 +75,7 @@ public:
                                            metrics::sidebarWidth);
         divider->setName("sidebarDivider");
         if (!m_configPath.empty()) {
-            const cutefish::base::Settings settings(m_configPath);
+            const properdesktop::base::Settings settings(m_configPath);
             sidebarWidth = std::clamp(settings.doubleValue(kSidebarWidthKey, metrics::sidebarWidth),
                                       metrics::sidebarMinimumWidth, metrics::sidebarMaximumWidth);
         }
@@ -89,7 +89,7 @@ public:
             sidebarWidth = width;
             requestLayout();
             if (!m_configPath.empty()) {
-                cutefish::base::Settings settings(m_configPath);
+                properdesktop::base::Settings settings(m_configPath);
                 settings.setValue(kSidebarWidthKey, width);
             }
             if (onSidebarResized)
@@ -141,7 +141,7 @@ DiskWindow::DiskWindow(::Application& application)
     m_toast = std::make_unique<Toast>(m_window.get());
 
     if (!application.configPath().empty()) {
-        const cutefish::base::Settings settings(application.configPath());
+        const properdesktop::base::Settings settings(application.configPath());
         m_context->viewMode = settings.boolValue(kAllDevicesKey) ? udisks::ViewMode::AllDevices
                                                                  : udisks::ViewMode::Volumes;
     }
@@ -193,7 +193,7 @@ DiskWindow::DiskWindow(::Application& application)
                 showError(tr("The operation was refused."), result.errorMessage);
         }));
     m_subscriptions.push_back(application.activateRequested.connect([this](const std::string& token) { activate(token); }));
-    m_subscriptions.push_back(cutefish::ui::Application::instance()->languageChanged.connect([this] {
+    m_subscriptions.push_back(properdesktop::ui::Application::instance()->languageChanged.connect([this] {
         buildMainMenu();
         m_root->sidebar->reload();
         updateSelection();
@@ -223,7 +223,7 @@ void DiskWindow::scheduleRebuild()
         return;
     m_rebuildScheduled = true;
     // Several signals arrive together for one change on the disk.
-    cutefish::base::EventLoop::current()->post([this, alive = std::weak_ptr<bool>(m_alive)] {
+    properdesktop::base::EventLoop::current()->post([this, alive = std::weak_ptr<bool>(m_alive)] {
         if (alive.expired())
             return;
         m_rebuildScheduled = false;
@@ -316,7 +316,7 @@ void DiskWindow::setViewMode(udisks::ViewMode mode)
         return;
     m_context->viewMode = mode;
     if (!m_application.configPath().empty()) {
-        cutefish::base::Settings settings(m_application.configPath());
+        properdesktop::base::Settings settings(m_application.configPath());
         settings.setValue(kAllDevicesKey, mode == udisks::ViewMode::AllDevices);
     }
     rebuildTree();
@@ -338,7 +338,7 @@ void DiskWindow::showViewMenu()
 void DiskWindow::requestQuit()
 {
     if (!m_application.operations().isAnyBusy()) {
-        cutefish::ui::Application::instance()->quit();
+        properdesktop::ui::Application::instance()->quit();
         return;
     }
     if (m_quitConfirm && m_quitConfirm->window()) {
@@ -351,7 +351,7 @@ void DiskWindow::requestQuit()
     m_quitConfirm->setCancelText(tr("Keep Running"));
     m_quitConfirm->setConfirmText(tr("Quit Anyway"));
     m_quitConfirm->setDestructive(true);
-    m_quitConfirm->onAccepted = [] { cutefish::ui::Application::instance()->quit(); };
+    m_quitConfirm->onAccepted = [] { properdesktop::ui::Application::instance()->quit(); };
     m_quitConfirm->show();
 }
 

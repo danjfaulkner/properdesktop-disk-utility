@@ -15,7 +15,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ConfirmDialog;
 class DialogButton;
 class DialogWindow;
@@ -61,7 +61,7 @@ public:
     void setImage(const std::string& path);
     // Asks to confirm, then calls onRestore.
     void restore();
-    cutefish::ui::ConfirmDialog* confirmation() const { return m_confirm.get(); }
+    properdesktop::ui::ConfirmDialog* confirmation() const { return m_confirm.get(); }
 
     std::function<void(const images::Endpoint& source, const std::string& sourceName, const udisks::Node& target,
                        const std::string& targetName)>
@@ -87,13 +87,13 @@ private:
     std::string m_removed;
     bool m_nothingChosen = false;
     std::vector<Source> m_sources;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    std::unique_ptr<cutefish::ui::ConfirmDialog> m_confirm;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::ConfirmDialog> m_confirm;
     std::unique_ptr<IdentityGuard> m_guard;
     ChoiceButton* m_source = nullptr;
     Footnote* m_problem = nullptr;
-    cutefish::ui::DialogButton* m_restore = nullptr;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    properdesktop::ui::DialogButton* m_restore = nullptr;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
 };
 
 } // namespace dialogs

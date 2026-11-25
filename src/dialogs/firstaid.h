@@ -15,7 +15,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ConfirmDialog;
 class DialogWindow;
 class Label;
@@ -127,16 +127,16 @@ private:
     std::string m_disk;
     udisks::Operations::Hold m_hold;
 
-    std::unique_ptr<cutefish::ui::ConfirmDialog> m_confirm;
+    std::unique_ptr<properdesktop::ui::ConfirmDialog> m_confirm;
     std::unique_ptr<IdentityGuard> m_confirmGuard;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    cutefish::ui::Label* m_status = nullptr;
-    cutefish::ui::ProgressBar* m_progress = nullptr;
-    cutefish::ui::View* m_details = nullptr;
-    cutefish::ui::TextArea* m_logView = nullptr;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    properdesktop::ui::Label* m_status = nullptr;
+    properdesktop::ui::ProgressBar* m_progress = nullptr;
+    properdesktop::ui::View* m_details = nullptr;
+    properdesktop::ui::TextArea* m_logView = nullptr;
     Disclosure* m_disclosure = nullptr;
     bool m_detailsShown = false;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };
 

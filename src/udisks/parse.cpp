@@ -5,7 +5,7 @@
 
 namespace udisks {
 
-using cutefish::base::dbus::ObjectPath;
+using properdesktop::base::dbus::ObjectPath;
 
 std::string decodeBytes(const std::vector<uint8_t>& bytes)
 {

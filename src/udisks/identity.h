@@ -68,7 +68,7 @@ private:
     std::vector<Identity> m_identities;
     std::function<void()> m_onLost;
     bool m_lost = false;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
 };
 
 } // namespace udisks

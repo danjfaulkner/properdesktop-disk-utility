@@ -15,7 +15,7 @@
 #include <cstdio>
 #include <filesystem>
 
-using namespace cutefish;
+using namespace properdesktop;
 using namespace std::chrono_literals;
 
 // Another connection that owns the name, or empty when none does: a failed
@@ -26,14 +26,14 @@ static std::string ownerOf(base::dbus::Connection* bus, const char* name)
     dbus.setTimeout(3s);
     const std::string owner = dbus.call("GetNameOwner", std::string(name)).value<std::string>().value_or(std::string());
     if (owner.empty())
-        std::fprintf(stderr, "cutefish-disk-utility: could not take the name %s; running without it.\n", name);
+        std::fprintf(stderr, "properdesktop-disk-utility: could not take the name %s; running without it.\n", name);
     return owner;
 }
 
 int main(int argc, char** argv)
 {
     base::CommandLineParser parser;
-    parser.setApplicationDescription("Cutefish Disk Utility");
+    parser.setApplicationDescription("Proper Desktop Disk Utility");
     parser.setApplicationVersion(DISK_UTILITY_VERSION);
     parser.addHelpOption();
     parser.addVersionOption();
@@ -41,8 +41,8 @@ int main(int argc, char** argv)
     parser.process(argc, argv);
 
     ui::Application app(argc, argv);
-    app.setApplicationId("cutefish-disk-utility");
-    i18n::setDomain("cutefish-disk-utility");
+    app.setApplicationId("properdesktop-disk-utility");
+    i18n::setDomain("properdesktop-disk-utility");
     for (const auto& [name, svg] : embeddedIcons())
         ui::Icon::registerGlyph(std::string(name), std::string(svg));
 
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
                 return 0;
             // A second copy would work on the disks without knowing what the
             // first one is doing with them.
-            std::fprintf(stderr, "cutefish-disk-utility: Disk Utility is already running but did not answer (%s).\n",
+            std::fprintf(stderr, "properdesktop-disk-utility: Disk Utility is already running but did not answer (%s).\n",
                          reply.error().message.c_str());
             return 1;
         }

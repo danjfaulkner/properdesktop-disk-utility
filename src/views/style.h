@@ -63,24 +63,24 @@ inline constexpr double infoTwoColumnWidth = 520;
 // Colours that follow the theme.
 namespace palette {
 
-cutefish::ui::Color text();
-cutefish::ui::Color muted();
-cutefish::ui::Color faint();
-cutefish::ui::Color hairline();
-cutefish::ui::Color hoverFill();
-cutefish::ui::Color pressFill();
-cutefish::ui::Color accent();
+properdesktop::ui::Color text();
+properdesktop::ui::Color muted();
+properdesktop::ui::Color faint();
+properdesktop::ui::Color hairline();
+properdesktop::ui::Color hoverFill();
+properdesktop::ui::Color pressFill();
+properdesktop::ui::Color accent();
 // Text and glyphs on an accent fill.
-cutefish::ui::Color onAccent();
+properdesktop::ui::Color onAccent();
 // The detail pane's background, under its cards.
-cutefish::ui::Color page();
-cutefish::ui::Color card();
+properdesktop::ui::Color page();
+properdesktop::ui::Color card();
 // The usage bar: what is free, and what the filesystem keeps for itself.
-cutefish::ui::Color freeSpace();
-cutefish::ui::Color otherSpace();
+properdesktop::ui::Color freeSpace();
+properdesktop::ui::Color otherSpace();
 // The partitions of a disk on its usage bar, in order, round again past
 // the last.
-cutefish::ui::Color partition(size_t index);
+properdesktop::ui::Color partition(size_t index);
 
 } // namespace palette
 

@@ -9,7 +9,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
 
 // The eject plate keeps one gap to the row's top, end and bottom, and its

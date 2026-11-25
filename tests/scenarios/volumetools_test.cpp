@@ -20,11 +20,11 @@
 
 #include <tuple>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
-using cutefish::base::dbus::ObjectPath;
-using cutefish::base::dbus::Variant;
-using cutefish::base::dbus::VariantMap;
+using properdesktop::base::dbus::ObjectPath;
+using properdesktop::base::dbus::Variant;
+using properdesktop::base::dbus::VariantMap;
 
 static udisks::Result value(Variant item)
 {
@@ -144,7 +144,7 @@ TEST_F(VolumeToolsTest, MountAsksForThePassphrase)
 
     dialog->click("unlock:passphrase");
     dialog->typeText("right");
-    dialog->typeKey(cutefish::ui::key::Return);
+    dialog->typeKey(properdesktop::ui::key::Return);
     const std::string cleartext = TreeBuilder::blockPath("dm_2d1");
     unlock = answer(value(Variant(ObjectPath{cleartext})));
     EXPECT_EQ(unlock.arguments.at(0).value<std::string>(), "right");
@@ -573,7 +573,7 @@ TEST_F(VolumeToolsTest, RenameClosedLeavesNoGuard)
     {
         auto dialog = over(scenario.driver);
         ASSERT_TRUE(dialog);
-        dialog->typeKey(cutefish::ui::key::Escape);
+        dialog->typeKey(properdesktop::ui::key::Escape);
     }
     runPosted();
     ASSERT_EQ(scenario.driver.dialog(), nullptr);
@@ -669,7 +669,7 @@ TEST_F(VolumeToolsTest, FirstAidKeepsTheDiskThroughARefusedCall)
     backend().reply(0, available(true));
     bool busyBetween = false;
     // Runs after the answer and before the refusal's result.
-    cutefish::base::EventLoop::current()->post(
+    properdesktop::base::EventLoop::current()->post(
             [&] { busyBetween = scenario.application.operations().isBusy(sample::kStick); });
     runPosted();
     EXPECT_TRUE(busyBetween);

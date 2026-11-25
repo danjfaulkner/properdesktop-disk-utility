@@ -16,7 +16,7 @@
 #include <string>
 #include <vector>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class Label;
@@ -86,31 +86,31 @@ private:
     bool m_zeroFill = false;
     bool m_stopped = false;
     std::optional<EraseRequest> m_lastRequest;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     std::unique_ptr<PlanRunner> m_runner;
     std::unique_ptr<IdentityGuard> m_guard;
-    std::unique_ptr<cutefish::ui::Menu> m_securityMenu;
+    std::unique_ptr<properdesktop::ui::Menu> m_securityMenu;
 
-    cutefish::ui::TextField* m_label = nullptr;
+    properdesktop::ui::TextField* m_label = nullptr;
     ChoiceButton* m_format = nullptr;
     ChoiceButton* m_scheme = nullptr;
     Footnote* m_schemeNote = nullptr;
-    cutefish::ui::Switch* m_encrypt = nullptr;
+    properdesktop::ui::Switch* m_encrypt = nullptr;
     TextFieldRow* m_passphraseRow = nullptr;
     TextFieldRow* m_verifyRow = nullptr;
     Footnote* m_securityNote = nullptr;
     Footnote* m_problem = nullptr;
-    cutefish::ui::DialogButton* m_eraseButton = nullptr;
-    cutefish::ui::DialogButton* m_securityButton = nullptr;
+    properdesktop::ui::DialogButton* m_eraseButton = nullptr;
+    properdesktop::ui::DialogButton* m_securityButton = nullptr;
 
-    cutefish::ui::Label* m_status = nullptr;
-    cutefish::ui::ProgressBar* m_bar = nullptr;
+    properdesktop::ui::Label* m_status = nullptr;
+    properdesktop::ui::ProgressBar* m_bar = nullptr;
     Footnote* m_stepNote = nullptr;
     Footnote* m_error = nullptr;
-    cutefish::ui::DialogButton* m_done = nullptr;
-    cutefish::ui::DialogButton* m_stop = nullptr;
+    properdesktop::ui::DialogButton* m_done = nullptr;
+    properdesktop::ui::DialogButton* m_stop = nullptr;
 
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
 };
 
 } // namespace dialogs

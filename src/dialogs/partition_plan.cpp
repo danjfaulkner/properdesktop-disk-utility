@@ -10,8 +10,8 @@
 
 #include <algorithm>
 
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 using udisks::Model;
 using udisks::Object;
 

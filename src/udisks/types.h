@@ -15,8 +15,8 @@
 // paths are strings, empty where UDisks2 says "/" (none).
 namespace udisks {
 
-using cutefish::base::dbus::Variant;
-using cutefish::base::dbus::VariantMap;
+using properdesktop::base::dbus::Variant;
+using properdesktop::base::dbus::VariantMap;
 
 inline constexpr const char* kService = "org.freedesktop.UDisks2";
 inline constexpr const char* kRoot = "/org/freedesktop/UDisks2";

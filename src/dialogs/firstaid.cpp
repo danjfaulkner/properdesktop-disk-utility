@@ -28,9 +28,9 @@
 #include <algorithm>
 #include <cmath>
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 using udisks::Object;
 
 namespace dialogs {
@@ -522,7 +522,7 @@ void FirstAid::finish()
         summary = tr("First Aid process has failed.");
     else if (m_skipped > 0)
         summary = tr("First Aid process has completed.") + std::string(" ")
-                + format(cutefish::i18n::trn("{n} volume was skipped.", "{n} volumes were skipped.",
+                + format(properdesktop::i18n::trn("{n} volume was skipped.", "{n} volumes were skipped.",
                                              uint64_t(m_skipped)),
                          {{"n", std::to_string(m_skipped)}});
     else

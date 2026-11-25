@@ -9,12 +9,12 @@
 
 namespace udisks {
 
-using namespace cutefish::base;
-using namespace cutefish::base::dbus;
+using namespace properdesktop::base;
+using namespace properdesktop::base::dbus;
 
 static constexpr const char* kObjectManager = "org.freedesktop.DBus.ObjectManager";
 static constexpr const char* kProperties = "org.freedesktop.DBus.Properties";
-static const LogCategory cfUdisks("cutefish.diskutility.udisks");
+static const LogCategory cfUdisks("properdesktop.diskutility.udisks");
 
 BusClient::BusClient(Model& model, Connection* bus)
     : m_model(model)

@@ -27,7 +27,7 @@
 using namespace images;
 using namespace udisks;
 using namespace udisks::fake;
-using cutefish::base::dbus::UnixFd;
+using properdesktop::base::dbus::UnixFd;
 
 static constexpr uint64_t kMiB = 1 << 20;
 static constexpr uint64_t kVolumeSize = 256 * 1024;
@@ -122,7 +122,7 @@ protected:
         return outcome;
     }
 
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     std::filesystem::path folder;
     TreeBuilder tree;
     Model model;
@@ -341,10 +341,10 @@ protected:
                 loops.addDisk("loop7", {}, {.size = 64 * kMiB, .deviceNumber = makedev(7, 7)});
                 loops.setLoop(loopPath, file("Blank.img"));
                 model.addInterfaces(loopPath, loops.interfaces(loopPath));
-                return value(Variant(cutefish::base::dbus::ObjectPath(loopPath)));
+                return value(Variant(properdesktop::base::dbus::ObjectPath(loopPath)));
             }
             if (call.method == "CreatePartitionAndFormat")
-                return value(Variant(cutefish::base::dbus::ObjectPath(partitionPath)));
+                return value(Variant(properdesktop::base::dbus::ObjectPath(partitionPath)));
             if (call.method == "Mount")
                 return value(Variant(std::string("/media/u/Blank")));
             if (call.method == "Format" && failFormat)

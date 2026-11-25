@@ -34,7 +34,7 @@ public:
 
     ::Application application{std::make_unique<udisks::fake::FakeBackend>()};
     std::unique_ptr<views::DiskWindow> window;
-    cutefish::ui::TestDriver driver{window->window(), [](const std::string& message) { ADD_FAILURE() << message; }};
+    properdesktop::ui::TestDriver driver{window->window(), [](const std::string& message) { ADD_FAILURE() << message; }};
 
 private:
     std::unique_ptr<views::DiskWindow> makeWindow()

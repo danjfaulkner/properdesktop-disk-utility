@@ -21,10 +21,10 @@
 
 #include <sys/sysmacros.h>
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace udisks::fake;
-using cutefish::base::dbus::Variant;
-using cutefish::base::dbus::VariantMap;
+using properdesktop::base::dbus::Variant;
+using properdesktop::base::dbus::VariantMap;
 
 // The window over the sample disks, its backend answering every call: the
 // tools for every filesystem but Btrfs and XFS are there, and the calls
